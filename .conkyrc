@@ -1,0 +1,94 @@
+######################
+# - Conky settings - #
+######################
+total_run_times 0
+#net_avg_samples 1
+#cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+#####################
+# - Text settings - #
+#####################
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+own_window_argb_value 0
+
+alignment tl
+gap_x 0
+gap_y 0
+minimum_size 100 100
+
+default_bar_size 60 8
+#default_shader_color 5555cc
+
+#########################
+# - Graphics settings - #
+#########################
+use_xft yes
+xftfont Bitstream Vera Sans Mono:size=8:style=bold
+xftalpha 1
+draw_shades yes
+
+default_color efefef
+default_shade_color 1d1d1d
+color0 00ccff
+color1 ffffff
+color2 ffffff
+color3 9900ff
+color4 006699
+
+draw_graph_borders no
+show_graph_scale no
+
+
+update_interval 1
+TEXT
+#originally divided by 144.
+${color green}${exec date}${color red}, keyCt: ${exec echo $(( $(stat /tmp/.klog| grep Size| sed 's/.*Size:\ \([0-9]*\).*\ */\1/g') / 96 ))}${color white}  
+${execpi 60 day=$(date | awk '{print $3}'); cal|sed "s/^/    /g; s/\b$day\b/\$\{color red\}$day\$color/g"}
+${cpugraph 50,260 000000 ff0000}
+${voffset -70}
+| CPU  : ${color1}${cpu cpu0}%    Freq  : ${exec lscpu| grep 'CPU MHz'| cut -d':' -f2| tr -d ' '}Hz
+| GPU  : ${execpi 60 glxinfo |grep 'er str'| cut -d' ' -f4-}
+| Temp  : ${color1}${acpitemp} C
+| ${execpi 2 $HOME/script/boot/wat.sh}
+
+${memgraph 50,260 000000 00ff00}
+${voffset -70}
+| Memo  : ${memperc} %
+|     ${mem}  ~${memeasyfree} 
+| Swap  : ${swapperc} %
+|     ${swap}  ~${swapfree}
+
+${upspeedgraph wlo1 25,260 000000 df18a8} ${voffset -5}
+${downspeedgraph wlo1 25,260 000000 18af88} ${voffset -5}
+${voffset -70}
+| SSID: ${color1}${wireless_essid wlo1}, ${wireless_link_qual wlo1}%
+| Upload: ${color1}${upspeed wlo1}
+| Down:   ${color1}${downspeed wlo1}
+| 
+
+${diskiograph_read 25,260 000000 9900ff}${voffset -5}
+${diskiograph_write 25,260 000000 006699}${voffset -5}
+${voffset -70}
+| Disk R:  ${diskio_read}
+| 
+| Disk W:  ${diskio_write}
+| 
+
+${execpi 5 $HOME/script/bash/dblk.sh}
+
+${execpi 5 ps -e -o %cpu,pid,cmd| grep -v 0.0| grep -v CMD| sort -rnk 1| head -n 8| cut -c 1-200| sed 's/^/\|/g'}

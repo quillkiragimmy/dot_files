@@ -1,0 +1,9 @@
+[user]
+	email = quillkiragimmy@gmail.com
+	name = Patricius
+
+[alias] 
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	co = checkout
+	cm = commit -am
+	p = push -u 

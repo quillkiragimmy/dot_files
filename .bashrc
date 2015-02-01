@@ -101,7 +101,7 @@ export QT_IM_MODULE="fcitx"
 #export XIM="fcitx"
 
 PATH+=:$HOME/bin
-TERM=linux
+TERM=xterm-256color
 
 if [ -z "$(tty| grep pts)" ]; then	# tty.
 	$HOME/script/boot/mybin.sh &

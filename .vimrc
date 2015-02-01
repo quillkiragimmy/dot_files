@@ -89,7 +89,8 @@ au BufNewFile,BufRead *.python,*.py setl sw=4 sts=4 et
 au BufNewFile,BufRead *.sh setl makeprg=bash
 
 map Q ZQ
-map tg gT
+map H gT
+map L gt
 nmap T :tabnew<cr>
 map <c-p> :set nowrap <cr>
 map <c-s> :w!
@@ -108,3 +109,8 @@ let myvar = strftime("(%y%m%d)_%Hh%M")
 let myvar = "set backupext=_".myvar
 execute myvar
 
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
+set term=xterm-256color

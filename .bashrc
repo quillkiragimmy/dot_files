@@ -84,6 +84,7 @@ complete -cf sch
 complete -W"$(yaourt -Qm| sed 's|local/||'| cut -d' ' -f1)" aurvote
 
 # exports.
+export TERM=xterm-256color
 export AUDIODEV=PCH
 export EDITOR=vim
 export WINEARCH=win64
@@ -101,7 +102,6 @@ export QT_IM_MODULE="fcitx"
 #export XIM="fcitx"
 
 PATH+=:$HOME/bin
-TERM=xterm-256color
 
 if [ -z "$(tty| grep pts)" ]; then	# tty.
 	$HOME/script/boot/mybin.sh &

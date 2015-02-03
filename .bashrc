@@ -84,7 +84,7 @@ complete -cf sch
 complete -W"$(yaourt -Qm| sed 's|local/||'| cut -d' ' -f1)" aurvote
 
 # exports.
-[[ ! $TERM ]] && export TERM=xterm-256color
+[[ ! $TMUX ]] && export TERM=xterm-256color
 export AUDIODEV=PCH
 export EDITOR=vim
 export WINEARCH=win64

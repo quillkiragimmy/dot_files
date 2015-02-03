@@ -78,11 +78,10 @@ lott(){
 
 ren(){
 	if [ $# == '0' ]; then
-		echo "Usage: ren <sed-regex> [-h, --half] <file-list>"
+		echo "Usage: ren [-r <sed-regex>] [-h, --half] <file-list>"
 	else
 		half_width=''
-		re="$1"
-		shift
+		re=""
 
 		count=0
 		while (( $# != 0 )); do
@@ -90,11 +89,15 @@ ren(){
 				'-h'| '--half')
 					half_width='yes'
 					;;
+				'-r')
+					shift
+					re=$1
+					;;
 				*)
 					orig[count]=$1
 					target[count]=$1
-					[[ "$half_width" ]] && target[count]=$(echo ${orig[count]}| sed "y/１２３４５６７８９０ー＝＿＋！＠＃＄％＾＆＊（）「」【】・、，。〜　？/1234567890-=_+!@#$%^&*()[][].,,.~ ?/")
-					target[count]=$(echo "${target[count]}"| sed "$re")
+					[[ "$half_width" ]] && target[count]=$(echo ${orig[count]}| sed "y/１２３４５６７８９０ー＝＿＋！＠＃♯＄％＾＆＊（）「」【】・、，。〜　？/1234567890-=_+!@##$%^&*()[][].,,.~ ?/")
+					[[ "$re" ]] && target[count]=$(echo "${target[count]}"| sed "$re")
 
 					[ "$1" != "${target[count]}" ] && echo -e "\e[1;32m${target[count]}\e[0;35m <-- $1 \e[0m"
 					(( count++ ))

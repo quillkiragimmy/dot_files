@@ -38,6 +38,12 @@
 #keystate_scrolllock= enable
 
 # Examples of commands:
+#
+"xrandr -x"
+alt + x
+
+"xrandr -y"
+alt + y
 
 "xbindkeys_show" 
 control + shift + q
@@ -48,7 +54,7 @@ F1
 "$HOME/bin/dmenu_alias.sh"
 F2
 
-"[ ! -e ~/.dim ] && (~/bin/brightness.sh 40 & touch ~/.dim) || (~/bin/brightness.sh 100 & rm ~/.dim)"
+"~/bin/brightness.sh"
 F4
 
 "xset dpms force off; sleep 1; xset dpms force off"

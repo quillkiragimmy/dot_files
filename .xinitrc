@@ -16,7 +16,7 @@ xset -b
 numlockx &
 xbacklight = 13 &
 
-compton &
+compton --dbus &
 conky &
 
 #xmobar &

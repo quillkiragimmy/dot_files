@@ -75,10 +75,11 @@ alt + F10
 "amixer -D default sset Master,0 toggle; notify-send 'ALSA Master Volume' $(amixer -D hw:$AUDIODEV sget Master,0| fgrep dB| cut -d' ' -f8) "
 alt + F11
 
-"xcalib -invert -alter "
+#"xcalib -invert -alter "
+"~/bin/inverter.sh"
 alt + n
 
-"if [ ! -z $(pgrep compton) ]; then killall -9 compton; else compton & fi"
+"if [ ! -z $(pgrep compton) ]; then killall -9 compton; else compton --dbus & fi"
 alt + o
 
 "mpc seek '-10'"

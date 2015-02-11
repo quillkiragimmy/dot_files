@@ -100,6 +100,7 @@ export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 #export XIM="fcitx"
+export LESS='-RM'
 
 PATH+=:$HOME/bin
 

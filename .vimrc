@@ -32,6 +32,7 @@ set autoindent		" always set autoindenting on
 
 let @p = 'ggO#!/usr/bin/env python2'
 let @b = 'ggO#!/usr/bin/bash'
+let @p = 'ggO#!/usr/bin/env perlj'
 let @h = '30i#yypO# '
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -87,6 +88,7 @@ au BufWritePost *.shader !./comp %
 
 au BufNewFile,BufRead *.python,*.py setl sw=4 sts=4 et 
 au BufNewFile,BufRead *.sh setl makeprg=bash
+au BufNewFile,BufRead *.pl setl makeprg=perl
 
 map Q ZQ
 map H gT

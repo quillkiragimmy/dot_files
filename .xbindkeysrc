@@ -54,7 +54,7 @@ F1
 "$HOME/bin/dmenu_alias.sh"
 F2
 
-"~/bin/brightness.sh"
+"~/bin/brightness.pl"
 F4
 
 "xset dpms force off; sleep 1; xset dpms force off"

@@ -81,7 +81,7 @@ complete -cf nohup
 complete -cf ja
 complete -cf ch
 complete -cf sch
-complete -W"$(yaourt -Qm| sed 's|local/||'| cut -d' ' -f1)" aurvote
+#complete -W"$(yaourt -Qm| sed 's|local/||'| cut -d' ' -f1)" aurvote
 
 # exports.
 [[ ! $TMUX ]] && export TERM=xterm-256color
@@ -101,8 +101,10 @@ export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 #export XIM="fcitx"
 export LESS='-RM'
+export PAGER='less'
 
 PATH+=:$HOME/bin
+export PATH
 
 if [ -z "$(tty| grep pts)" ]; then	# tty.
 	$HOME/script/boot/mybin.sh &

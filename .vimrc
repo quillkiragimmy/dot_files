@@ -29,10 +29,12 @@ set nu
 set tabstop=2
 set shiftwidth=2
 set autoindent		" always set autoindenting on
+set wildmode=longest,list,full
+set wildmenu
 
 let @p = 'ggO#!/usr/bin/env python2'
 let @b = 'ggO#!/usr/bin/bash'
-let @p = 'ggO#!/usr/bin/env perlj'
+let @p = 'ggO#!/usr/bin/env perljiuse strict;use warnings;2j'
 let @h = '30i#yypO# '
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -50,6 +52,7 @@ if has("autocmd")
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
+	set omnifunc=syntaxcomplete#Complete
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
@@ -116,3 +119,4 @@ python powerline_setup()
 python del powerline_setup
 set laststatus=2
 set term=xterm-256color
+set fileencodings=utf-8,sjis,default

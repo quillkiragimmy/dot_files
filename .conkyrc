@@ -57,7 +57,7 @@ show_graph_scale no
 update_interval 1
 TEXT
 #originally divided by 144.
-${color green}${exec date}${color red}, keyCt: ${exec echo $(( $(stat /tmp/.klog| grep Size| sed 's/.*Size:\ \([0-9]*\).*\ */\1/g') / 96 ))}${color white}  
+${color green}${exec date}${color red}, UpTime: ${execpi 60 uptime| perl -pe 's/^.*up\s(.*),.*?user.*/\1/' }${color white}  
 ${execpi 60 day=$(date | awk '{print $3}'); cal|sed "s/^/    /g; s/\b$day\b/\$\{color red\}$day\$color/g"}
 ${cpugraph 50,260 000000 ff0000}
 ${voffset -70}

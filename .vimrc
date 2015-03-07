@@ -32,9 +32,9 @@ set autoindent		" always set autoindenting on
 set wildmode=longest,list,full
 set wildmenu
 
-let @p = 'ggO#!/usr/bin/env python2'
+let @p = 'ggO#!/usr/bin/env python2# -*- coding: UTF-8 -*-import sys'
 let @b = 'ggO#!/usr/bin/bash'
-let @p = 'ggO#!/usr/bin/env perljiuse strict;use warnings;2j'
+let @l = 'ggO#!/usr/bin/env perljiuse strict;use warnings;2j'
 let @h = '30i#yypO# '
 
 " Switch syntax highlighting on, when the terminal has colors

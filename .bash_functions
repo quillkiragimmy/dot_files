@@ -126,3 +126,27 @@ xpath(){
 
 alias halfchar='sed "y/１２３４５６７８９０ー＝＿＋！＠＃＄％＾＆＊（）「」【】・、，。〜　？/1234567890-=_+!@#$%^&*()[][].,,.~ ?/"'
 
+gtalk(){
+
+if [ "$1" == '' ]; then
+	lang='en'
+else
+	lang="$1"
+fi
+
+while read line; do
+	wget -q -U Mozilla -O /tmp/tts.mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=$lang&q=$(echo $line| tr ' ' '+')"
+	mpv --speed 1.3 /tmp/tts.mp3 &> /dev/null
+done
+}
+
+pokeme(){
+	while read msg; do
+		notify-send "$(date)" "$msg"
+	done
+}
+
+lv(){
+	ls $1| gtalk
+}
+

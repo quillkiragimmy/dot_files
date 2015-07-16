@@ -17,7 +17,7 @@ numlockx &
 xbacklight = 13 &
 
 compton --dbus &
-conky &
+conky -q &
 
 #xmobar &
 #cellwriter &
@@ -30,5 +30,5 @@ sleep 1; $HOME/script/boot/daemon.sh &
 
 xrandr --setprovideroffloadsink radeon Intel
 
-
+#i3
 xmonad 

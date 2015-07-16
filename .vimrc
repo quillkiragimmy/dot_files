@@ -89,18 +89,20 @@ au BufNewFile,BufRead *.frag,*.vert,*.glsl,*.shader setl filetype=glsl
 au BufWritePost *.coffee CoffeeMake -b
 au BufWritePost *.shader !./comp %
 
-au BufNewFile,BufRead *.python,*.py setl sw=4 sts=4 et 
+au BufNewFile,BufRead *.python,*.py setl sw=4 sts=4 et makeprg=python2
 au BufNewFile,BufRead *.sh setl makeprg=bash
 au BufNewFile,BufRead *.pl setl makeprg=perl
+au BufNewFile,BufRead *.cpp,*.h setl makeprg=make
 
 map Q ZQ
 map H gT
 map L gt
 nmap T :tabnew<cr>
 map <c-p> :set nowrap <cr>
-map <c-s> :w!
+map <c-e> :e ++enc=sjis <cr>
+
 nmap <c-c> :w!<cr>:!chmod +x %<cr>:make % <cr>
-au FileType python nmap <c-c> :w! <cr> :!python2 % <cr>
+"au FileType python nmap <c-c> :w! <cr> :!python2 % <cr>
 
 au FileType cpp nmap <F7> : wa! <cr> : silent! make <cr> :cw <cr> :redraw!<cr>
 "au FileType glsl nmap <F5> : w! <cr> :! ./comp % <cr>
@@ -119,4 +121,3 @@ python powerline_setup()
 python del powerline_setup
 set laststatus=2
 set term=xterm-256color
-set fileencodings=utf-8,sjis,default

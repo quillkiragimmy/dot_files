@@ -96,15 +96,22 @@ export HISTSIZE=100000
 export HISTFILESIZE=$((HISTSIZE * 2))
 #export WINEARCH=win32
 
-export XMODIFIERS="@im=fcitx"
-export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
+#export GTK_IM_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
+#export XMODIFIERS=@im=fcitx
 #export XIM="fcitx"
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 export LESS='-RM'
 export PAGER='less'
 
 PATH+=:$HOME/bin
 export PATH
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 if [ -z "$(tty| grep pts)" ]; then	# tty.
 	$HOME/script/boot/mybin.sh &

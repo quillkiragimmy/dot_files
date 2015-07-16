@@ -229,7 +229,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-layoutTmp = Full ||| tiled ||| Mirror tiled 
+layoutTmp = Full ||| tiled -- ||| Mirror tiled 
   where
      tiled   = Tall nmaster delta ratio
      nmaster = 1
@@ -237,7 +237,7 @@ layoutTmp = Full ||| tiled ||| Mirror tiled
      delta   = 1/20
 
 
-defaultLayouts = tiled ||| Mirror tiled |||Full
+defaultLayouts = tiled |||Full
   where
      -- default tiling algorithm partitions the screen into two panes
 --     tiled   = Tall nmaster delta ratio
@@ -297,7 +297,7 @@ myManageHook = composeAll
 --    , className =? "Cellwriter"           --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , className =? "Conky"					--> doIgnore
---    , className =? "glxgears"					--> doIgnore
+    , className =? "Gimp"					--> doFloat
     , className =? "Xfce4-notifyd"	--> doIgnore
     , className =? "conky"					--> doIgnore
     , className =? "Anki"					--> doShift "5:notes"

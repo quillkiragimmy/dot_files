@@ -466,8 +466,8 @@ def_key "a"
 def_key "w"
   save_playlist
 
-#def_key "o"
-#  jump_to_playing_song
+def_key "o"
+  jump_to_playing_song
 #
 #def_key "G"
 #  jump_to_browser

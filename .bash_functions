@@ -150,3 +150,13 @@ lv(){
 	ls $1| gtalk
 }
 
+umt(){
+
+	for i in $(df| grep $1| cut -d' ' -f1); do
+		echo "unmounting $i"
+		umount "$i"
+	done
+
+	udisks --detach /dev/$1
+}
+

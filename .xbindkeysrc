@@ -97,6 +97,10 @@ mod4 + F11
 "mpc toggle"
 mod4 + F12
 
+"systemctl suspend"
+mod4 + s
+#Mod2+Mod4 + Print
+
 "$HOME/bin/scrShot.sh root"
 alt + p
 

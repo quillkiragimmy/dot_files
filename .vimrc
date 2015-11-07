@@ -92,7 +92,7 @@ au BufWritePost *.shader !./comp %
 au BufNewFile,BufRead *.python,*.py setl sw=4 sts=4 et makeprg=python2
 au BufNewFile,BufRead *.sh setl makeprg=bash
 au BufNewFile,BufRead *.pl setl makeprg=perl
-au BufNewFile,BufRead *.cpp,*.h setl makeprg=make
+au BufNewFile,BufRead *.cpp,*c,*.h setl makeprg=make
 
 map Q ZQ
 map H gT

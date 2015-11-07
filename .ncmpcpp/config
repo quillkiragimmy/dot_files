@@ -418,13 +418,13 @@ clock_display_seconds = no
 
 display_volume_level = yes
 
-display_bitrate = no
+display_bitrate = yes
 
 display_remaining_time = no
 
 # Available values: none, basic, extended.
 #
-regular_expressions = none
+regular_expressions = extended
 
 #
 # Note: If below is enabled, ncmpcpp will ignore leading

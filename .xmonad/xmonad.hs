@@ -75,29 +75,16 @@ toggleFloat = withFocused (\windowId -> do {
 	if windowId `M.member` floats 
 	then withFocused $ windows . W.sink
 	else	float windowId >> 
-				withFocused (keysResizeWindow (-50,-50) (0.5,0.5))
+				withFocused (keysResizeWindow (-1050,-600) (0.95,0.05))
 	})
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-		, ((mod4Mask,						xK_t		 ), spawn $ XMonad.terminal conf)
-
-		-- ibus quick switch.
---		, ((mod4Mask,						xK_1		 ), spawn "ibus engine mozc-jp")
---		, ((mod4Mask,						xK_2		 ), spawn "ibus engine rime")
---		, ((mod4Mask,						xK_3		 ), spawn "ibus engine xkb:lv:apostrophe:lav")
-
-    -- launch gmrun
---    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
-
     -- close focused window
 --    , ((modm .|. shiftMask, xK_c     ), kill)
-    , ((modm,		 						xK_c     ), kill)
+    [ ((modm,		 						xK_c     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
@@ -171,10 +158,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,               xF86XK_AudioRaiseVolume     ), spawn "amixer -D hw:$AUDIODEV sset Master,0 1%+; notify-send 'ALSA Master Volume' -h int:value:$(amixer -D hw:$AUDIODEV sget Master,0| fgrep dB| cut -d'[' -f2| cut -d '%' -f1) ")
     , ((0,               xF86XK_AudioMute     ), spawn "amixer -D hw:$AUDIODEV sset Master,0 toggle; notify-send 'ALSA Master Volume' -h int:value:$(amixer -D hw:$AUDIODEV sget Master,0| fgrep dB| cut -d' ' -f8) ")
 
---    , ((mod4Mask,               xK_l     ), spawn "xlock")
-
-		 , ((modm, xK_v ), windows copyToAll) -- @@ Make focused window always visible
-	   , ((modm .|. shiftMask, xK_v ),  killAllOtherCopies) -- @@ Toggle window state back
+--		 , ((modm, xK_v ), windows copyToAll) -- @@ Make focused window always visible
+--	   , ((modm .|. shiftMask, xK_v ),  killAllOtherCopies) -- @@ Toggle window state back
 
 
     ]
@@ -284,7 +269,7 @@ myManageHook = composeAll
 		, className =? "xpad"						--> doShift "5:notes"
 --		, className =? "Gimp"           --> doFloat
     , className =? "Qjackctl"           --> doFloat
-    , className =? "Qsynth"           --> doFloat
+    , className =? "qsynth"           --> doFloat
     , className =? "Rosegarden"           --> doFloat
     , className =? "rosegarden"           --> doFloat
 --    , className =? "Florence"           --> doFloat
@@ -299,6 +284,7 @@ myManageHook = composeAll
     , className =? "Conky"					--> doIgnore
     , className =? "Gimp"					--> doFloat
     , className =? "Xfce4-notifyd"	--> doIgnore
+--    , className =? "Ninix_main.py"	--> doIgnore
     , className =? "conky"					--> doIgnore
 --    , className =? "Anki"					--> doShift "5:notes"
     , className =? "Patchage"					--> doShift "5:notes"
@@ -306,7 +292,9 @@ myManageHook = composeAll
 		, title =? "PlayOnLinux" --> doFloat
 		, className =? "GrandOrgue" --> doFloat
 		, className =? "feh" --> doFloat
-    , resource  =? "kdesktop"       --> doIgnore ]
+		, className =? "ssp.exe" --> doF (copyToAll)
+		, className =? "ssp.exe" --> doIgnore
+    , resource  =? "kdesktop"       --> doIgnore]
 
 ------------------------------------------------------------------------
 -- Event handling

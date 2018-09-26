@@ -42,7 +42,7 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = -1
     
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -182,7 +182,7 @@
 [urgency_normal]
     background = "#285577"
     foreground = "#ffffff"
-    timeout = 20
+    timeout = 5
 
 [urgency_critical]
     background = "#900000"

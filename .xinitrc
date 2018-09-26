@@ -11,8 +11,10 @@ fi
 
 $HOME/script/boot/monitor.sh
 $HOME/bin/de_initer.sh
+#$HOME/bin/brightness.sh &
 
-feh --bg-fill $HOME/.backgroundImg.png 
+xbacklight -set 0
+feh --bg-max $HOME/.backgroundImg.png 
 xsetroot -cursor_name left_ptr 
 
 #setxkbmap -option caps:swapescape 
@@ -26,25 +28,26 @@ dunst &
 xset -b 
 
 numlockx &
-xbacklight = 13 &
 
 compton --dbus &
 conky -q &
 
 #xmobar &
-#cellwriter &
-#unclutter -root -grab &
 hidcur 3 &
 
 #mpd &
 
-sleep 1; $HOME/script/boot/daemon.sh &
+( $HOME/script/boot/daemon.sh) &
 
 xrandr --setprovideroffloadsink radeon Intel
 
 #i3
 
-$HOME/bin/eye_rest.sh &
+#$HOME/bin/eye_rest.sh &
+#
 
 
 xmonad 
+#i3
+#twm
+#xfdesktop

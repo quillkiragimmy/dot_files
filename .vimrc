@@ -19,7 +19,7 @@ if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
-	set backupdir=~/notes/vimback
+	set backupdir=~/.vimback
 endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
@@ -35,7 +35,8 @@ set wildmenu
 let @p = 'ggO#!/usr/bin/env python2# -*- coding: UTF-8 -*-import sys'
 let @b = 'ggO#!/usr/bin/bash'
 let @l = 'ggO#!/usr/bin/env perljiuse strict;use warnings;2j'
-let @h = '30i#yypO# '
+let @h = '030i#yypO# '
+let @c = '0i	30a*yypki/jA/ko'
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -85,7 +86,8 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-au BufNewFile,BufRead *.frag,*.vert,*.glsl,*.shader setl filetype=glsl
+au BufNewFile,BufRead *.frag,*.vert,*.glsl,*.shader setl filetype=c
+au BufNewFile,BufRead *.l,*.y setl filetype=c
 au BufWritePost *.coffee CoffeeMake -b
 au BufWritePost *.shader !./comp %
 
@@ -116,8 +118,8 @@ let myvar = strftime("(%y%m%d)_%Hh%M")
 let myvar = "set backupext=_".myvar
 execute myvar
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 set laststatus=2
 set term=xterm-256color

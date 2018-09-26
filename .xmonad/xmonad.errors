@@ -1,106 +1,64 @@
 
-xmonad.hs:74:1: Warning: Tab character
+xmonad.hs:74:1: warning: [-Wtabs]
+    Tab character found here, and in 114 further locations.
+    Please use spaces instead.
+   |
+74 |         floats <- gets (W.floating . windowset);
+   | ^^^^^^^^
 
-xmonad.hs:75:1: Warning: Tab character
+xmonad.hs:78:65: warning: [-Woverflowed-literals]
+    Literal -1050 is out of the GHC.Word.Word32 range 0..4294967295
+   |
+78 |                                 withFocused (keysResizeWindow (-1050,-600) (0.95,0.05))
+   |                                                                 ^^^^
 
-xmonad.hs:76:1: Warning: Tab character
+xmonad.hs:78:71: warning: [-Woverflowed-literals]
+    Literal -600 is out of the GHC.Word.Word32 range 0..4294967295
+   |
+78 |                                 withFocused (keysResizeWindow (-1050,-600) (0.95,0.05))
+   |                                                                       ^^^
 
-xmonad.hs:77:1: Warning: Tab character
+xmonad.hs:127:89: warning: [-Woverflowed-literals]
+    Literal -48 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+127 |                 , ((modm,               xK_minus     ), withFocused (keysResizeWindow (-48,-27) (0.5,0.5)))
+    |                                                                                         ^^
 
-xmonad.hs:77:13: Warning: Tab character
+xmonad.hs:127:93: warning: [-Woverflowed-literals]
+    Literal -27 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+127 |                 , ((modm,               xK_minus     ), withFocused (keysResizeWindow (-48,-27) (0.5,0.5)))
+    |                                                                                             ^^
 
-xmonad.hs:78:1: Warning: Tab character
+xmonad.hs:129:95: warning: [-Woverflowed-literals]
+    Literal -48 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+129 |                 , ((modm,               xK_bracketleft     ), withFocused (keysResizeWindow (-48, 0) (0.5,1)))
+    |                                                                                               ^^
 
-xmonad.hs:79:1: Warning: Tab character
+xmonad.hs:133:85: warning: [-Woverflowed-literals]
+    Literal -50 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+133 |                 , ((modm,               xK_Left    ), withFocused (keysMoveWindow (-50,0)))
+    |                                                                                     ^^
 
-xmonad.hs:88:1: Warning: Tab character
+xmonad.hs:135:87: warning: [-Woverflowed-literals]
+    Literal -50 is out of the GHC.Word.Word32 range 0..4294967295
+    |
+135 |                 , ((modm,               xK_Up      ), withFocused (keysMoveWindow (0,-50)))
+    |                                                                                       ^^
 
-xmonad.hs:88:30: Warning: Tab character
+xmonad.hs:229:16: warning: [-Wdeprecations]
+    In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+    |
+229 |      tiled   = spacing 0 $ Tall nmaster delta ratio
+    |                ^^^^^^^
 
-xmonad.hs:88:77: Warning: Tab character
-
-xmonad.hs:90:1: Warning: Tab character
-
-xmonad.hs:100:14: Warning: Tab character
-
-xmonad.hs:100:26: Warning: Tab character
-
-xmonad.hs:138:1: Warning: Tab character
-
-xmonad.hs:140:1: Warning: Tab character
-
-xmonad.hs:141:1: Warning: Tab character
-
-xmonad.hs:142:1: Warning: Tab character
-
-xmonad.hs:143:1: Warning: Tab character
-
-xmonad.hs:145:1: Warning: Tab character
-
-xmonad.hs:146:1: Warning: Tab character
-
-xmonad.hs:146:48: Warning: Tab character
-
-xmonad.hs:147:1: Warning: Tab character
-
-xmonad.hs:148:1: Warning: Tab character
-
-xmonad.hs:148:48: Warning: Tab character
-
-xmonad.hs:149:1: Warning: Tab character
-
-xmonad.hs:155:1: Warning: Tab character
-
-xmonad.hs:169:1: Warning: Tab character
-
-xmonad.hs:176:1: Warning: Tab character
-
-xmonad.hs:177:1: Warning: Tab character
-
-xmonad.hs:272:35: Warning: Tab character
-
-xmonad.hs:273:35: Warning: Tab character
-
-xmonad.hs:274:35: Warning: Tab character
-
-xmonad.hs:277:36: Warning: Tab character
-
-xmonad.hs:279:44: Warning: Tab character
-
-xmonad.hs:280:32: Warning: Tab character
-
-xmonad.hs:281:1: Warning: Tab character
-
-xmonad.hs:281:39: Warning: Tab character
-
-xmonad.hs:282:1: Warning: Tab character
-
-xmonad.hs:282:38: Warning: Tab character
-
-xmonad.hs:283:1: Warning: Tab character
-
-xmonad.hs:283:51: Warning: Tab character
-
-xmonad.hs:284:1: Warning: Tab character
-
-xmonad.hs:284:38: Warning: Tab character
-
-xmonad.hs:299:27: Warning: Tab character
-
-xmonad.hs:300:26: Warning: Tab character
-
-xmonad.hs:301:35: Warning: Tab character
-
-xmonad.hs:302:27: Warning: Tab character
-
-xmonad.hs:304:30: Warning: Tab character
-
-xmonad.hs:305:1: Warning: Tab character
-
-xmonad.hs:306:1: Warning: Tab character
-
-xmonad.hs:307:1: Warning: Tab character
-
-xmonad.hs:308:1: Warning: Tab character
-
-xmonad.hs:331:1: Warning: Tab character
+xmonad.hs:344:12: warning: [-Wdeprecations]
+    In the use of ‘defaultConfig’
+    (imported from XMonad, but defined in XMonad.Config):
+    Deprecated: "Use def (from Data.Default, and re-exported by XMonad and XMonad.Config) instead."
+    |
+344 | defaults = defaultConfig {
+    |            ^^^^^^^^^^^^^

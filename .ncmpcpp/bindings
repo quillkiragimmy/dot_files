@@ -178,11 +178,11 @@ def_key "g"
 def_key "G"
   move_end
 
-def_key "space"
-  press_space
+#def_key "space"
+#  press_space
 
-def_key "l"
-  press_enter
+#def_key "l"
+#  press_enter
 
 def_key "x"
   delete_playlist_items
@@ -337,8 +337,8 @@ def_key "h"
 #def_key "Y"
 #  toggle_replay_gain_mode
 #
-def_key "t"
-  toggle_space_mode
+#def_key "t"
+#  toggle_space_mode
 
 #def_key "T"
 #  toggle_add_mode

@@ -18,8 +18,10 @@ text_buffer_size 2048
 #############################
 # - Window specifications - #
 #############################
-own_window_class Conky
+background yes
 own_window yes
+own_window_class Conky
+#own_window_type override
 own_window_type desktop
 own_window_transparent yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
@@ -54,14 +56,14 @@ draw_graph_borders no
 show_graph_scale no
 
 
-update_interval 1
+update_interval 2
 TEXT
 #originally divided by 144.
 ${color green}${exec date}${color red}, UpTime: ${execpi 60 uptime| perl -pe 's/^.*up\s(.*),.*?user.*/\1/' }${color white}  
 ${execpi 60 day=$(date | awk '{print $3}'); cal|sed "s/^/    /g; s/\b$day\b/\$\{color red\}$day\$color/g"}
 ${cpugraph 50,260 000000 ff0000}
 ${voffset -70}
-| CPU  : ${color1}${cpu cpu0}%    Freq  : ${exec lscpu| grep 'CPU MHz'| cut -d':' -f2| tr -d ' '}Hz
+| CPU  : ${color1}${cpu cpu0}%    Freq  : ${exec cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq|sort|head -n1|rev|cut -c4-|rev} MHz
 | GPU  : ${execpi 60 glxinfo |grep 'er str'| cut -d' ' -f4-}
 | Temp  : ${color1}${acpitemp} C
 | ${execpi 2 $HOME/script/boot/wat.sh}
@@ -77,7 +79,7 @@ ${upspeedgraph wlo1 25,260 000000 df18a8} ${voffset -5}
 ${downspeedgraph wlo1 25,260 000000 18af88} ${voffset -5}
 ${voffset -70}
 | SSID: ${color1}${wireless_essid wlo1}, ${wireless_link_qual wlo1}%
-| Upload: ${color1}${upspeed wlo1}
+| Up: ${color1}${upspeed wlo1}
 | Down:   ${color1}${downspeed wlo1}
 | 
 

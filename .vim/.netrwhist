@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/patricius/oj'
+let g:netrw_dirhist_2='/home/patricius/oj/solved'
+let g:netrw_dirhist_3='/home/patricius/oj/dead'
+let g:netrw_dirhist_4='/home/patricius/oj/stuck'
+let g:netrw_dirhist_5='/home/patricius/oj'
+let g:netrw_dirhist_6='/home/patricius/.weechat'
+let g:netrw_dirhist_7='/var/lib/mysql'
+let g:netrw_dirhist_8='/home/patricius/project/tridix'

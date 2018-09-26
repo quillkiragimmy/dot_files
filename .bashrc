@@ -71,6 +71,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#reverse-i-search forward scrolling by ctrl+s
+[[ $- == *i* ]] && stty -ixon
+
 #complete -cf sudo 
 complete -cf man
 complete -cf m
@@ -122,9 +125,11 @@ else	# virtual tty.
 fi
 
 if [[ $(whoami) != "root" ]]; then 
-	if [[ $(tty) == "/dev/tty3" ]]; then
-		mpd &> /dev/null &
+	if [[ $(tty) == "/dev/tty1" ]]; then
+		curlftpfs patricius@192.168.0.115 archPrimum/ -o user=patricius:p &
+#		mpd &> /dev/null &
 		startx
+#		echo asdf
 	fi
 fi
 

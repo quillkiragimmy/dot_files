@@ -123,4 +123,5 @@ python powerline_setup()
 python del powerline_setup
 set laststatus=2
 set term=xterm-256color
+
 set runtimepath^=~/.vim/bundle/ag

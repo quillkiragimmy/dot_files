@@ -118,8 +118,9 @@ let myvar = strftime("(%y%m%d)_%Hh%M")
 let myvar = "set backupext=_".myvar
 execute myvar
 
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 set laststatus=2
 set term=xterm-256color
+set runtimepath^=~/.vim/bundle/ag

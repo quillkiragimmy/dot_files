@@ -32,9 +32,18 @@ set autoindent		" always set autoindenting on
 set wildmode=longest,list,full
 set wildmenu
 
-let @p = 'ggO#!/usr/bin/env python2# -*- coding: UTF-8 -*-import sys'
-let @b = 'ggO#!/usr/bin/bash'
-let @l = 'ggO#!/usr/bin/env perljiuse strict;use warnings;2j'
+set foldmethod=syntax
+set nofoldenable        "dont fold by default
+set foldnestmax=10
+
+let @p = 'ggO#!/usr/bin/env python2
+# -*- coding: UTF-8 -*-
+import sys
+'
+let @b = 'ggO#!/usr/bin/bash
+'
+let @l = 'ggO#!/usr/bin/env perljiuse strict;
+use warnings;2j'
 let @h = '030i#yypO# '
 let @c = '0i	30a*yypki/jA/ko'
 
@@ -113,6 +122,8 @@ map <c-k> <c-w>k
 map <c-j> <c-w>j
 map <c-h> <c-w>h
 map <c-l> <c-w>l
+map <F9>  :set nofoldenable <cr>
+
 
 let myvar = strftime("(%y%m%d)_%Hh%M")
 let myvar = "set backupext=_".myvar

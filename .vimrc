@@ -35,6 +35,7 @@ set wildmenu
 set foldmethod=syntax
 set nofoldenable        "dont fold by default
 set foldnestmax=10
+set path+=** "for file searching.
 
 let @p = 'ggO#!/usr/bin/env python2
 # -*- coding: UTF-8 -*-

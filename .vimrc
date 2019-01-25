@@ -113,7 +113,8 @@ nmap T :tabnew<cr>
 map <c-p> :set nowrap <cr>
 map <c-e> :e ++enc=sjis <cr>
 
-nmap <c-c> :w!<cr>:!chmod +x %<cr>:make % <cr>
+"nmap <c-c> :w!<cr>:!chmod +x %<cr>:make % <cr>
+nmap <c-c> :!cscope-indexer -r & <cr><cr>
 "au FileType python nmap <c-c> :w! <cr> :!python2 % <cr>
 
 au FileType cpp nmap <F7> : wa! <cr> : silent! make <cr> :cw <cr> :redraw!<cr>
@@ -137,3 +138,25 @@ set laststatus=2
 set term=xterm-256color
 
 set runtimepath^=~/.vim/bundle/ag
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+map <C-]> :cs find g <C-R>=expand("<cword>")<CR><CR>
+map <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
+map <C-e> :cs find e 
